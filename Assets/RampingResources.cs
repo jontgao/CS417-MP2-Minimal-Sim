@@ -55,7 +55,7 @@ public class RampingResources : MonoBehaviour
         {
             resourceText.text =
                 $"A: {Mathf.FloorToInt(resourceA)}\n" +
-                $"B: {Mathf.FloorToInt(resourceB)}";
+                (bUnlocked ? $"B: {Mathf.FloorToInt(resourceB)}" : "");
         }
     }
 
