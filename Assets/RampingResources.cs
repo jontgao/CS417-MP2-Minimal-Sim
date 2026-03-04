@@ -7,6 +7,8 @@ public class RampingResources : MonoBehaviour
 
     public GameObject resourceBGroup;   // assign parent object
     public GameObject unlockBButton;    // assign unlock cube
+    public GameObject trophy;
+    private int trophiesUnlocked = 0;
 
     public int unlockBCost = 500;
 
@@ -47,6 +49,7 @@ public class RampingResources : MonoBehaviour
         resourceB += finalRateB * Time.deltaTime;
 
         UpdateUI();
+        CheckTrophies();
     }
 
     void UpdateUI()
@@ -128,6 +131,16 @@ public class RampingResources : MonoBehaviour
 
             resourceBGroup.SetActive(true);      // show B UI
             unlockBButton.SetActive(false);      // hide unlock button
+        }
+    }
+
+    public void CheckTrophies()
+    {
+        if (resourceA >= Mathf.Pow(10,trophiesUnlocked))
+        {
+            GameObject newTrophy = Instantiate(trophy, new Vector3(0f, 1f + (1f * trophiesUnlocked), 4f), Quaternion.identity);
+            newTrophy.GetComponent<Trophy>().Initialize($"{Mathf.FloorToInt(resourceA)} A");
+            ++trophiesUnlocked;
         }
     }
 
