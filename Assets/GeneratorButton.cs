@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GeneratorButton : MonoBehaviour
 {
@@ -6,7 +7,15 @@ public class GeneratorButton : MonoBehaviour
 
     public GeneratorType type;
     public float cost = 20f;
+    public float costGrowth = 1.5f;
     public float rateIncrease = 2f;
+
+    private TextMeshProUGUI childText;
+    
+    void Start()
+    {
+        childText = GetComponentInChildren<TextMeshProUGUI>();
+    }
 
     public void PurchaseGenerator()
     {
@@ -33,8 +42,16 @@ public class GeneratorButton : MonoBehaviour
             }
         }
 
+
+
+
         if (purchased)
+        {
+            // update cost
+            cost = (int)(cost * costGrowth);
+            childText.text = $"Purchase Generator {type}\nCost {cost} {type}";
             Debug.Log("Generator Purchased!");
+        }
         else
             Debug.Log("Not enough resources!");
     }
