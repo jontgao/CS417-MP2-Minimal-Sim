@@ -1,5 +1,7 @@
 # VR Incremental Resource Game
 
+Authors: Jonathan Gao, Shriya Dave, Yutong Wen
+
 I used XR Device Simulator for now.
 Resource B starts locked and can be unlocked by spending a large amount of Resource A, after which it begins generating and its buttons become active. Power-ups can be purchased via VR buttons to multiply generator output, and resource amounts are always displayed in the player’s view. The system is designed to be modular and easily expandable for adding new resources, generators, and upgrades.
 
