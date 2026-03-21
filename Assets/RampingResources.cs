@@ -33,6 +33,11 @@ public class RampingResources : MonoBehaviour
 
     public float resourceBBaseRate = 1f;
 
+    public AudioClip sfxClip;
+
+    private float finalRateA = 0f;
+    private float finalRateB = 0f;
+
     void Awake()
     {
         if (Instance == null)
@@ -43,8 +48,8 @@ public class RampingResources : MonoBehaviour
 
     void Update()
     {
-        float finalRateA = baseRateA * multiplierA;
-        float finalRateB = baseRateB * multiplierB;
+        finalRateA = baseRateA * multiplierA;
+        finalRateB = baseRateB * multiplierB;
 
         resourceA += finalRateA * Time.deltaTime;
         resourceB += finalRateB * Time.deltaTime;
@@ -143,6 +148,11 @@ public class RampingResources : MonoBehaviour
             resourceBGroup.SetActive(true);      // show B UI
             unlockBButton.SetActive(false);      // hide unlock button
             tutorialManager.ShowResourceBTutorial();
+
+            if (sfxClip != null)
+            {
+                AudioSource.PlayClipAtPoint(sfxClip, resourceBGroup.transform.position);
+            }
         }
     }
 
@@ -160,5 +170,9 @@ public class RampingResources : MonoBehaviour
         }
     }
 
+    public float GetFinalRate(GeneratorButton.GeneratorType type)
+    {
+        return type == GeneratorButton.GeneratorType.A ? finalRateA : finalRateB;
+    }
 
 }

@@ -4,6 +4,7 @@ public class Clicker : MonoBehaviour
 {
     public enum ResourceType { A, B }
     public ResourceType type;
+    public AudioClip sfxClip;
 
     public void AddResource()
     {
@@ -17,6 +18,11 @@ public class Clicker : MonoBehaviour
         else
         {
             manager.addB();
+        }
+
+        if (sfxClip != null)
+        {
+            AudioSource.PlayClipAtPoint(sfxClip, transform.position);
         }
     }
 }
