@@ -146,7 +146,7 @@ public class RampingResources : MonoBehaviour
             baseRateB = resourceBBaseRate;   // START B growth
 
             resourceBGroup.SetActive(true);      // show B UI
-            unlockBButton.SetActive(false);      // hide unlock button
+            // unlockBButton.SetActive(false);      // hide unlock button
             tutorialManager.ShowResourceBTutorial();
 
             if (sfxClip != null)
