@@ -11227,6 +11227,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496029668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Controller/Primary Button
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
+  m_Asset: {fileID: -944628639613478452, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
+  m_ActionId: 54068f2e-4569-46ab-9864-63b23fb9c26a
 --- !u!1 &517109724
 GameObject:
   m_ObjectHideFlags: 0
@@ -12544,6 +12558,7 @@ MonoBehaviour:
   resourceText: {fileID: 589019737}
   resourceBBaseRate: 0.5
   sfxClip: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
+  trophyClip: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
 --- !u!114 &907057924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18073,7 +18088,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   tutorialPanel: {fileID: 1413175290}
   tutorialText: {fileID: 1575177005}
-  closeAction: {fileID: 0}
+  closeAction: {fileID: 496029668}
+  tutorialPopupSound: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
 --- !u!4 &1239444629
 Transform:
   m_ObjectHideFlags: 0

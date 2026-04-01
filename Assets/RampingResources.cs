@@ -34,6 +34,7 @@ public class RampingResources : MonoBehaviour
     public float resourceBBaseRate = 1f;
 
     public AudioClip sfxClip;
+    public AudioClip trophyClip;
 
     private float finalRateA = 0f;
     private float finalRateB = 0f;
@@ -163,6 +164,10 @@ public class RampingResources : MonoBehaviour
             GameObject newTrophy = Instantiate(trophy, new Vector3(0f, 1f + (1f * trophiesUnlocked), 4f), Quaternion.identity);
             newTrophy.GetComponent<Trophy>().Initialize($"{Mathf.FloorToInt(resourceA)} A");
             ++trophiesUnlocked;
+            if (trophyClip != null)
+            {
+                AudioSource.PlayClipAtPoint(trophyClip, transform.position);
+            }
         }
         if (trophiesUnlocked == 1) 
         {
